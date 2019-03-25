@@ -13,16 +13,18 @@ public class Main
 
 	public static boolean isPalindrome(int number)
 	{
-		StringBuilder sb = new StringBuilder();
-		int numberMovement = number < 0 ? number * -1 : number;
+		int numberMovement = number;
+		int reverse = 0;
 
-		while (numberMovement > 0)
+		while (numberMovement != 0)
 		{
-			sb.append(numberMovement % 10);
+			int lastDigit = numberMovement % 10;
 			numberMovement /= 10;
+			reverse *= 10;
+			reverse +=lastDigit;
 		}
 
-		return (Integer.valueOf(sb.toString()) == ((number < 0) ? number * -1 : number));
+		return (number == reverse);
 
 	}
 
